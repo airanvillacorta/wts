@@ -1,0 +1,11 @@
+#link-custom-breadcrumb{
+    color: rgba(0,0,0,.5);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+#link-custom-breadcrumb:hover{
+    color: rgba(0,0,0,.9);
+    text-decoration: none;
+    background-color: transparent;
+}
