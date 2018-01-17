@@ -120,7 +120,7 @@
                       echo "<td>".$reg['IMN_venta']."</td>";
                       echo "<td>".$reg['IMN_precio']."</td>";
         					  	echo "<td style='text-align: center;'>	
-    			                  	<a href=''><i class='fa fa-gear'></i></a>
+    			                  	<a href='modificar_inmuebles.php?org=".$reg['IMN_organizacion']."&id=".$reg['IMN_id']."'><i class='fa fa-gear'></i></a>
     			                  	<a href='eliminar_inmuebles.php?org=".$reg['IMN_organizacion']."&id=".$reg['IMN_id']."'><i class='fa fa-trash-o'></i></a>
                               <a href='../web/inmueble.php?id=".$reg['IMN_id']."' target='_blank'><i class='fa fa-eye'></i></a>
     			                  	<!--<a href=''><i class='fa fa-save'></i></a>-->

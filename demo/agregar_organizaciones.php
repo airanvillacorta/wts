@@ -140,6 +140,29 @@ function enabledest()
 
   <!-- Iconos de la W3C -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+  <style>
+    
+          .contact_form input, .contact_form textarea {
+        padding-right:30px;
+    }
+        .contact_form input:focus:invalid, .contact_form textarea:focus:invalid { /* when a field is considered invalid by the browser */
+        background: #fff url(images/invalid.png) no-repeat 98% center;
+        box-shadow: 0 0 5px #d45252;
+        border-color: #b03535
+    }
+    .contact_form input:required:valid, .contact_form textarea:required:valid { /* when a field is considered valid by the browser */
+        background: #fff url(images/valid.png) no-repeat 98% center;
+        box-shadow: 0 0 5px #5cd053;
+        border-color: #28921f;
+    }
+    input:required, textarea:required {
+        background: #fff url(images/red_asterisk.png) no-repeat 98% center;
+    }
+.contact_form input:required, .contact_form textarea:required {
+	background: #fff url(images/red_asterisk.png) no-repeat 98% center;
+}
+    </style>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" onload="enabledest()">
@@ -200,23 +223,23 @@ function enabledest()
             
             
 
-        <form name="myForm" action="" onsubmit="return validateForm()" enctype="multipart/form-data" method="post">
+        <form class="contact_form" name="myForm" action="" onsubmit="return validateForm()" enctype="multipart/form-data" method="post">
           <div class="form-group">
               <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" name="nombre" id="nombre">
+                <input type="text"  required class="form-control" name="nombre" id="nombre">
           </div>
           <div class="form-group">
             <div class="form-group">
               <label for="correo">Correo:</label>
-                <input type="text" class="form-control" name="correo" id="correo">
+                <input type="email"  required class="form-control" name="correo" id="correo">
           </div>
             <div class="form-group">
               <label for="telefono">Telefono:</label>
-                <input type="text" class="form-control" name="telefono" id="telefono">
+                <input type="text"  required class="form-control" name="telefono" id="telefono">
           </div>
         <div class="form-group">
               <label for="direccion">Direccion:</label>
-                <input type="text" class="form-control" name="direccion" id="direccion">
+                <input type="text"  required class="form-control" name="direccion" id="direccion">
           </div>
                 
           <div class="form-group">
@@ -232,11 +255,11 @@ function enabledest()
           </div>
             <div class="form-group">
               <label for="direccion">Titulo:</label>
-                <input type="text" class="form-control" name="tituloacerca" id="tituloacerca">
+                <input type="text"  required class="form-control" name="tituloacerca" id="tituloacerca">
           </div>
            <div class="form-group">
               <label for="direccion">Acerca :</label>
-                <input type="textarea" class="form-control" name="acerca" id="acerca">
+                <input type="textarea"  required class="form-control" name="acerca" id="acerca">
           </div>
             <div class="form-group">
               <label for="direccion">Acerca2 :</label>
@@ -249,7 +272,7 @@ function enabledest()
         
            <div class="form-group">
               <label for="direccion">Servicio :</label>
-                <input type="textarea" class="form-control" name="servicio1" id="servicio1">
+                <input type="textarea"  required class="form-control" name="servicio1" id="servicio1">
           </div>
             <div class="form-group">
               <label for="direccion">Servicio 2:</label>

@@ -25,7 +25,7 @@
 
     if ($result->num_rows > 0) {
       $last_id = $conn->insert_id;
-      echo "loaded INM record successfully. Last deleted ID is: " . $last_id;
+     
          if ($result->num_rows > 0) {
                 // output data of each row
                 if($row = $result->fetch_assoc()) {
@@ -163,6 +163,30 @@ function enabledest()
 
   <!-- Iconos de la W3C -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+    <style>
+    
+          .contact_form input, .contact_form textarea {
+        padding-right:30px;
+    }
+        .contact_form input:focus:invalid, .contact_form textarea:focus:invalid { /* when a field is considered invalid by the browser */
+        background: #fff url(images/invalid.png) no-repeat 98% center;
+        box-shadow: 0 0 5px #d45252;
+        border-color: #b03535
+    }
+    .contact_form input:required:valid, .contact_form textarea:required:valid { /* when a field is considered valid by the browser */
+        background: #fff url(images/valid.png) no-repeat 98% center;
+        box-shadow: 0 0 5px #5cd053;
+        border-color: #28921f;
+    }
+    input:required, textarea:required {
+        background: #fff url(images/red_asterisk.png) no-repeat 98% center;
+    }
+.contact_form input:required, .contact_form textarea:required {
+	background: #fff url(images/red_asterisk.png) no-repeat 98% center;
+}
+    </style>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" onload="enabledest()">
@@ -220,10 +244,10 @@ function enabledest()
         <div class="card-body">
 
         <!-- Agregar Contenido -->
-        <form name="myForm" action="" onsubmit="return validateForm()" enctype="multipart/form-data" method="post">
+        <form  class="contact_form" name="myForm" action="" onsubmit="return validateForm()" enctype="multipart/form-data" method="post">
           <div class="form-group">
               <label for="titulo">Titulo:</label>
-                <input type="text" value="<?=$titulo?>"class="form-control" name="titulo" id="titulo">
+                <input type="text" required  value="<?=$titulo?>"class="form-control" name="titulo" id="titulo"> required 
           </div>
           <div class="form-group">
           <label for="tipo">Tipo Inmueble:</label>
@@ -241,31 +265,31 @@ function enabledest()
           </div>
           <div class="form-group">
               <label for="referencia">Referencia:</label>
-                <input type="text" value="<?=$referencia?>"  class="form-control" name="referencia" id="referencia">
+                <input type="text"  required value="<?=$referencia?>"  class="form-control" name="referencia" id="referencia">
           </div>
           
           <div class="form-group">
               <label for="descripcion">Descripcion:</label>
-                <input type="text" value="<?=$descripcion?>"  class="form-control" name="descripcion" id="descripcion">
+                <input type="text"  required value="<?=$descripcion?>"  class="form-control" name="descripcion" id="descripcion">
           </div>
           
           <div class="form-group">
               <label for="precio">Precio:</label>
-                <input type="number" value="<?=$precio?>" class="form-control" name="precio" id="precio">
+                <input type="number" required  value="<?=$precio?>" class="form-control" name="precio" id="precio">
           </div>
           <div class="form-group">
             <label for="habitaciones">Habitaciones:</label>
            
-            <input type="number" value="<?=$habitaciones?>"class="form-control" name="habitaciones"  min="0" max="12" id="habitaciones">
+            <input type="number"  required value="<?=$habitaciones?>"class="form-control" name="habitaciones"  min="0" max="12" id="habitaciones">
           </div>
           <div class="form-group">
             <label for="banos">Baños:</label>
-            <input type="number" value="<?=$banos?>"class="form-control" name="banos"  min="0" max="8" id="banos">
+            <input type="number"  required value="<?=$banos?>"class="form-control" name="banos"  min="0" max="8" id="banos">
           </div>
           
           <div class="form-group">
             <label for="m2">M2:</label>
-            <input type="number" value="<?=$m2?>"class="form-control" name="m2"  min="20" max="10000" id="m2">
+            <input type="number" required  value="<?=$m2?>"class="form-control" name="m2"  min="20" max="10000" id="m2">
           </div>
           <div class="form-group">
           <label for="ano">Año Construcción:</label>
