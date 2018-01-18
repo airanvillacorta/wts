@@ -300,7 +300,7 @@ function enabledest()
           ?>
           <div class="form-group">
               <label for="titulo">Titulo:</label>
-                <input type="text"  required class="form-control" name="titulo" id="titulo">
+                <input type="text"  required class="form-control" name="titulo" placeholder="Titulo del inmueble"  id="titulo">
           </div>
           <div class="form-group">
           <label for="tipo">Tipo Inmueble:</label>
@@ -318,12 +318,12 @@ function enabledest()
           </div>
           <div class="form-group">
               <label for="referencia">Referencia:</label>
-                <input type="text"  required class="form-control" name="referencia" id="referencia">
+                <input type="text"  required class="form-control" name="referencia"  placeholder="Codigo Referencia"  id="referencia">
           </div>
           
           <div class="form-group">
               <label for="descripcion">Descripcion:</label>
-                <input type="text"  required class="form-control" name="descripcion" id="descripcion">
+                <input type="text"  required class="form-control" name="descripcion" placeholder="Descripcion"  id="descripcion">
           </div>
           
           <div class="form-group">

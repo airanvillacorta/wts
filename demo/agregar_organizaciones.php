@@ -226,20 +226,20 @@ function enabledest()
         <form class="contact_form" name="myForm" action="" onsubmit="return validateForm()" enctype="multipart/form-data" method="post">
           <div class="form-group">
               <label for="nombre">Nombre:</label>
-                <input type="text"  required class="form-control" name="nombre" id="nombre">
+                <input type="text"  required class="form-control" name="nombre" placeholder="Nombre de la Organizacion"id="nombre">
           </div>
           <div class="form-group">
             <div class="form-group">
               <label for="correo">Correo:</label>
-                <input type="email"  required class="form-control" name="correo" id="correo">
+                <input type="email"  required class="form-control" name="correo"  placeholder="correo@ejemplo.com"  id="correo">
           </div>
             <div class="form-group">
               <label for="telefono">Telefono:</label>
-                <input type="text"  required class="form-control" name="telefono" id="telefono">
+                <input type="text"  required class="form-control" name="telefono"  placeholder="673032032" id="telefono">
           </div>
         <div class="form-group">
               <label for="direccion">Direccion:</label>
-                <input type="text"  required class="form-control" name="direccion" id="direccion">
+                <input type="text"  required class="form-control" name="direccion"  placeholder="Calle Ejemplo n1" id="direccion">
           </div>
                 
           <div class="form-group">
@@ -255,32 +255,32 @@ function enabledest()
           </div>
             <div class="form-group">
               <label for="direccion">Titulo:</label>
-                <input type="text"  required class="form-control" name="tituloacerca" id="tituloacerca">
+                <input type="text"  required class="form-control" name="tituloacerca" placeholder="Titulo para la pagina Acerca"id="tituloacerca">
           </div>
            <div class="form-group">
               <label for="direccion">Acerca :</label>
-                <input type="textarea"  required class="form-control" name="acerca" id="acerca">
+                <input type="textarea"  required class="form-control" name="acerca" placeholder="Primer parrafo acerca" id="acerca">
           </div>
             <div class="form-group">
               <label for="direccion">Acerca2 :</label>
-                <input type="textarea" class="form-control" name="acerca2" id="acerca2">
+                <input type="textarea" class="form-control" name="acerca2" placeholder="Segundo parrafo acerca"id="acerca2">
           </div>
             <div class="form-group">
               <label for="direccion">Acerca3 :</label>
-                <input type="textarea" class="form-control" name="acerca3" id="acerca3">
+                <input type="textarea" class="form-control" name="acerca3" placeholder="Tercer parrafo acerca" id="acerca3">
           </div>
         
            <div class="form-group">
               <label for="direccion">Servicio :</label>
-                <input type="textarea"  required class="form-control" name="servicio1" id="servicio1">
+                <input type="textarea"  required class="form-control" name="servicio1" placeholder="Primer parrafo Servicio" id="servicio1">
           </div>
             <div class="form-group">
               <label for="direccion">Servicio 2:</label>
-                <input type="textarea" class="form-control" name="servicio2" id="servicio2">
+                <input type="textarea" class="form-control" name="servicio2"placeholder="Segundo parrafo Servicio" id="servicio2">
           </div>
             <div class="form-group">
               <label for="direccion">Servicio 3 :</label>
-                <input type="textarea" class="form-control" name="servicio3" id="servicio3">
+                <input type="textarea" class="form-control" name="servicio3" placeholder="Tercer parrafo Servicio" id="servicio3">
           </div>
         
           <div class="form-group">

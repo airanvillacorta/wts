@@ -1,22 +1,5 @@
 <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "gecko"; 
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
-            $id="";
-              
-            $id=$_GET["id"];
-
-              
-            $sql = "SELECT IMN_id,IMN_Titulo, IMN_referencia,IMN_precio,IMN_tipo,IMN_desc,IMN_habitaciones,IMN_habitaciones,IMN_banos,IMN_m2,IMN_venta,IMN_anoconstruccion,IMN_certificadoener, IMG_path, IMN_organizacion FROM inmueble, imagen WHERE IMN_id='$id' AND IMN_id=IMG_id_INM";
-
-            $result = $conn->query($sql);
+           
 
 ?>
 
@@ -92,7 +75,26 @@
 	    <!--Edit Main Content Area here-->
 	        <div class="span12" id="divMain" style="text-align:justify;">
 	            <h1>Inmueble</h1>
-	            <hr><?
+	            <hr><?php
+                
+                 $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "gecko"; 
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            } 
+            $id="";
+              
+            $id=$_GET["id"];
+
+              
+            $sql = "SELECT IMN_id,IMN_Titulo, IMN_referencia,IMN_precio,IMN_tipo,IMN_desc,IMN_habitaciones,IMN_habitaciones,IMN_banos,IMN_m2,IMN_venta,IMN_anoconstruccion,IMN_certificadoener, IMG_path, IMN_organizacion FROM inmueble, imagen WHERE IMN_id='$id' AND IMN_id=IMG_id_INM";
+
+            $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 // output data of each row

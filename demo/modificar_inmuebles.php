@@ -105,7 +105,7 @@ if(isset($_POST['submit'])){
 
     if ($conn->query($sql) === TRUE) {
       $last_id = $conn->insert_id;
-      echo " INM record UPDATED successfully. Last inserted ID is: " . $last_id;
+     // echo " INM record UPDATED successfully. Last inserted ID is: " . $last_id;
       
       
     }

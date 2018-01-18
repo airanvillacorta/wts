@@ -2,14 +2,13 @@
   $id = $_GET["id"];
   $conexion=mysqli_connect("localhost","root","","gecko") or
       die("Problemas con la conexión");
-  $registros=mysqli_query($conexion,"select ORG_nombre, ORG_tituloacerca, ORG_imgAcerca, ORG_acerca, ORG_acerca2, ORG_acerca3
+  $registros=mysqli_query($conexion,"select ORG_nombre, ORG_tituloacerca, ORG_acerca, ORG_acerca2, ORG_acerca3
                           from organizacion where ORG_id = '$id'") or
     die("Problemas en el select:".mysqli_error($conexion));
 
   if ($reg=mysqli_fetch_array($registros)){
     $nombre = $reg['ORG_nombre'];
     $titulo = $reg['ORG_tituloacerca'];
-    $imagen = $reg['ORG_imgAcerca'];
     $parrafo1 = $reg['ORG_acerca'];
     $parrafo2 = $reg['ORG_acerca2'];
     $parrafo3 = $reg['ORG_acerca3'];
