@@ -2,14 +2,13 @@
   $id = $_GET["id"];
   $conexion=mysqli_connect("localhost","root","","gecko") or
       die("Problemas con la conexión");
-  $registros=mysqli_query($conexion,"select ORG_nombre, ORG_tituloacerca, ORG_imgAcerca, ORG_acerca, ORG_acerca2, ORG_acerca3
+  $registros=mysqli_query($conexion,"select ORG_nombre, ORG_tituloacerca, ORG_acerca, ORG_acerca2, ORG_acerca3
                           from organizacion where ORG_id = '$id'") or
     die("Problemas en el select:".mysqli_error($conexion));
 
   if ($reg=mysqli_fetch_array($registros)){
     $nombre = $reg['ORG_nombre'];
     $titulo = $reg['ORG_tituloacerca'];
-    $imagen = $reg['ORG_imgAcerca'];
     $parrafo1 = $reg['ORG_acerca'];
     $parrafo2 = $reg['ORG_acerca2'];
     $parrafo3 = $reg['ORG_acerca3'];
@@ -52,30 +51,36 @@
       <header class="masthead">
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="index.php?id=<? echo $id ?>"><b><? echo $nombre; ?></b></a>
+			<a class="navbar-brand" href="index.php?id=<?php echo $id ?>"><b><?php echo $nombre; ?></b></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 			</button>
-
+        
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="index.php?id=<? echo $id ?>">Inicio <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="index.php?id=<?php echo $id ?>">Inicio <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="empresa.php?id=<? echo $id ?>"><span style="color: rgb(40, 167, 69);">La empresa</span></a>
+						<a class="nav-link" href="empresa.php?id=<?php echo $id ?>"><span style="color: rgb(40, 167, 69);">La empresa</span></a>
+					</li>
+					<li class="nav-item ">
+						<a class="nav-link" href="servicios.php?id=<?php echo $id ?>">Servicios</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="servicios.php?id=<? echo $id ?>">Servicios</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="contacto.php?id=<? echo $id ?>">Contacto</a>
+						<a class="nav-link" href="contacto.php?id=<?php echo $id ?>">Contacto</a>
 					</li>
 				</ul>
 				<div class="form-inline my-2 my-lg-0">
-					<a href="inmuebles.php?id=<? echo $id ?>">
-						<button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">Inmuebles</button>
-					</a>
+                    
+					<?php
+                    echo'<a href="inmuebles.php?id='. $id.'">
+                    
+                    	<button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">Inmuebles</button>
+					</a>'; 
+                    ?>
+                   
+					
 				</div>
 			</div>
 		</nav>

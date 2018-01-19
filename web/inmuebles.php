@@ -43,14 +43,18 @@
     <link href="css/justified-nav.css" rel="stylesheet">
     <link href="css/shop-homepage.css" rel="stylesheet">
   </head>
+    
+<body>
 
-  <body>
+
+
+    <body>
 
     <div class="container">
 
       <header class="masthead">
 
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="index.php?id=<?php echo $id ?>"><b><?php echo $nombre; ?></b></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -84,18 +88,58 @@
 				</div>
 			</div>
 		</nav>
-
-      </header>
-      <br>
+     </header>
+     <br>
       <main role="main">
 
         <div class="row-fluid">
 	    <!--Edit Main Content Area here-->
 	        <div class="span12" id="divMain" style="text-align:justify;">
-	            <h1>Inmueble</h1>
-	            <hr><?php
-                
-                 $servername = "localhost";
+	            <h1>Inmuebles de <?php echo $nombre; ?></h1>
+  <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        
+      
+
+        <div class="col-lg-9">
+
+          <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+          <div class="row">
+
+            <?php
+            $id = $_GET["id"];
+              
+              
+            $servername = "localhost";
             $username = "root";
             $password = "";
             $dbname = "gecko"; 
@@ -105,88 +149,57 @@
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } 
-            $id="";
-              
-            $id=$_GET["in"];
 
               
-            $sql = "SELECT IMN_id,IMN_Titulo, IMN_referencia,IMN_precio,IMN_tipo,IMN_desc,IMN_habitaciones,IMN_habitaciones,IMN_banos,IMN_m2,IMN_venta,IMN_anoconstruccion,IMN_certificadoener, IMG_path, IMN_organizacion FROM inmueble, imagen WHERE IMN_id='$id' AND IMN_id=IMG_id_INM";
+            
 
+              
+            $sql = "SELECT IMN_id,IMN_Titulo, IMN_referencia,IMN_precio,IMN_habitaciones,IMN_habitaciones,IMN_banos,IMN_m2,IMN_venta, IMG_path FROM inmueble, imagen WHERE IMN_id=IMG_id_INM AND IMN_organizacion ='$id' GROUP BY IMN_id";
+              
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 // output data of each row
-                if($row = $result->fetch_assoc()) {
-                    
-                    echo'  <!-- Portfolio Item Heading -->
-                          <h3 class="my-4">'. $row["IMN_Titulo"] .'
-                            <br><small>Referencia: <span style="color:blue;">'. $row["IMN_referencia"] .'</span></small>
-                          </h3>
-
-                          <!-- Portfolio Item Row -->
-                          <div class="row">
-
-                            <div class="col-md-8">
-                              <img class="img-fluid" src="'. $row["IMG_path"].'"  alt="">
-                            </div>
-
-
-
-
-                    <div class="col-md-4">
-                      <h3 class="my-3"> <small><b>Precio:</b>  </small><span style="color:blue;">'. $row["IMN_precio"] .'€</span></h3>
-                      <h3 class="my-3"> <small><b>Precio del m/2:</b>  </small><span style="color:blue;">'. intval($row["IMN_precio"]/$row["IMN_m2"]) .'€</span></h3>
-                      <h3 class="my-3"> <small><b>Descripción:</b></small></h3>
-                      <p>'. $row["IMN_desc"].'</p>
-                      <h3 class="my-3"> <small><b>Tipo de Operación: </b></small>'. $row["IMN_venta"] .'</h3>
-                      <h3 class="my-3">Características: </h3>
-                      <ul>
-                        <li>'.$row["IMN_habitaciones"] .' Habitaciones</li>
-                        <li>'.$row["IMN_banos"] .' Baños</li>
-                        <li>'.$row["IMN_m2"] .' m/2</li>
-                        <li> Año Construcción: '.$row["IMN_anoconstruccion"] .' </li>
-                        <li>Certificado Energético: '.$row["IMN_certificadoener"] .' Hab</li>
-                        <li>Tipo de inmueble: '.$row["IMN_tipo"] .'</li>
-                      </ul>
-                    </div>
-
-                  </div>';
-                    
-                    
-            $sql = "SELECT IMG_path FROM  imagen WHERE IMG_id_INM='$id'";
-            echo '<h3 class="my-4">Imágenes:</h3><hr><br>
-             <div class="row">';
-            
-            $result = $conn->query($sql);
-                    
-              if ($result->num_rows > 0) {
-                // output data of each row
                 while($row = $result->fetch_assoc()) {
-                
-                    echo'  <div class="col-md-3 col-sm-6 mb-4">
-                      <a href="#">
-                        <img class="img-fluid" src="'. $row["IMG_path"].'"   alt="">
-                      </a>
-                    </div>';
                     
+                    echo'<div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        
+                    <a href="href="inmueble.php?id='. $row["IMN_id"].'"><img class="card-img-top" src="'. $row["IMG_path"].'" alt=""></a>
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        '. $row["IMN_Titulo"] .'
+                      </h4>
+                      <h5 style="text-align: right;">'. $row["IMN_precio"] .'€</h5>
+                      <p class="card-text">'. $row["IMN_referencia"] .' <br>'. $row["IMN_venta"] .'<br> <center>'. $row["IMN_habitaciones"] .' Hab| '. $row["IMN_banos"] .' Baños| '. $row["IMN_m2"] .'m2 </center> </p>
+                    </div>
+                        <div class="card-footer"> 
+                            <a href="inmueble.php?id='.$id.'&in='. $row["IMN_id"].'">
+                            <button type="button" class="btn btn-success">Ver Inmueble</button></a>
+                        </div>
+                    </div>
+                </div>';
                 }
-                  echo '</div>';
             } else {
-                echo "0 results";
+                echo "Esta organizacion no tiene inmuebles publicados";
             }
-                    
-                }
-            } else {
-                echo "0 results";
-            }
-            
+
             $conn->close();
             ?> 
+            
 
+          </div>
+          <!-- /.row -->
 
+        </div>
+        <!-- /.col-lg-9 -->
 
+      </div>
+      <!-- /.row -->
 
-	        </div><br>
+    </div>
+    <!-- /.container --> 
+     </div><br>
 	    </div>
 
         <nav class="breadcrumb" style="background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
@@ -225,3 +238,4 @@
     <script src="dist/js/bootstrap.min.js"></script>
   </body>
 </html>
+
