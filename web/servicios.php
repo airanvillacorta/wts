@@ -73,8 +73,9 @@
 				</ul>
 				<div class="form-inline my-2 my-lg-0">
                     
+					
 					<?php
-                    echo'<a href="inmueble.php?id='. $id.'">
+                    echo'<a href="inmuebles.php?id='. $id.'">
                     
                     	<button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">Inmuebles</button>
 					</a>'; 
