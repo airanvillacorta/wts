@@ -2,8 +2,8 @@
   $id = $_GET["id"];
   $conexion=mysqli_connect("localhost","root","","gecko") or
       die("Problemas con la conexión");
-  $registros=mysqli_query($conexion,"select ORG_nombre, ORG_tituloacerca, ORG_acerca, ORG_acerca2, ORG_acerca3
-                          from organizacion where ORG_id = '$id'") or
+  $registros=mysqli_query($conexion,"select ORG_nombre, ORG_tituloacerca, ORG_acerca, ORG_acerca2, ORG_acerca3 , IMG_path
+                          from organizacion,imagen where ORG_id = '$id' and IMG_id_ORG= ORG_id ") or
     die("Problemas en el select:".mysqli_error($conexion));
 
   if ($reg=mysqli_fetch_array($registros)){
@@ -12,6 +12,8 @@
     $parrafo1 = $reg['ORG_acerca'];
     $parrafo2 = $reg['ORG_acerca2'];
     $parrafo3 = $reg['ORG_acerca3'];
+    $imagen= $reg['IMG_path'];
+      
   }
 ?>
 
@@ -98,16 +100,16 @@
 	            <p><strong class="text-error"><? echo $titulo ?></strong><br><br></p>
 
               <center>
-                <img src="<? echo $imagen ?>" alt="Encuentra tu casa" style="border-radius: 5%" width="300px" height="200px">
+                <img src="<?php echo $imagen ?>" alt="Encuentra tu casa" style="border-radius: 5%" width="300px" height="200px">
               </center>
               <br><br>
               
               <!-- Parrafo 1, acerca de -->
-	            <p><? echo $parrafo1 ?></p>
+	            <p><?php echo $parrafo1 ?></p>
               <!-- Parrafo 2, acerca de -->
-	            <p><? echo $parrafo2 ?></p>
+	            <p><?php echo $parrafo2 ?></p>
               <!-- Parrafo 3, acerca de -->
-	            <p><? echo $parrafo3 ?></p>
+	            <p><?php echo $parrafo3 ?></p>
 	        </div><br>
 	    </div>
 
@@ -117,7 +119,7 @@
 
         <nav class="breadcrumb" style="background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
     border: 1px solid #e5e5e5;">
-			<a class="breadcrumb-item" href="index.php?id=<? echo $id ?>" id='link-custom-breadcrumb'>/ Inicio</a>
+			<a class="breadcrumb-item" href="index.php?id=<?php echo $id ?>" id='link-custom-breadcrumb'>/ Inicio</a>
 			<span class="breadcrumb-item active" span style="color: rgb(40, 167, 69);">La empresa</span>
 		</nav>
       </main>

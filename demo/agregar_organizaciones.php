@@ -96,28 +96,14 @@ if(isset($_POST['submit'])){
 ?>
 <script>
 function validateForm() {
-    var x = document.forms["myForm"]["titulo"].value;
-    if (x == "") {
-        alert("titulo must be filled out");
-        return false;
-    }
-
+ 
     var y = document.forms["myForm"]["upload[]"].files.length;
     if (y ==0) {
-        alert("Need at least 1 image");
+        alert("hace falta una imagen");
         return false;
     }
 }
-function enabledest()
-{
-  
-  var x = document.getElementById("destupload");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+
 </script>
 <!DOCTYPE html>
 <html lang="es">
@@ -165,7 +151,7 @@ function enabledest()
     </style>
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top" onload="enabledest()">
+<body class="fixed-nav sticky-footer bg-dark" id="page-top" >
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.php">Demo - S.G.I. GECKO</a>

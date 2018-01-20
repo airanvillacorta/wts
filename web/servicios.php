@@ -98,11 +98,11 @@
 	            <p><strong class="text-error"><? echo $titulo ?></strong><br><br></p>
 
                <!-- Parrafo 1, acerca de -->
-              <p><? echo $parrafo1 ?></p>
+              <p><?php echo $parrafo1 ?></p>
               <!-- Parrafo 2, acerca de -->
-              <p><? echo $parrafo2 ?></p>
+              <p><?php echo $parrafo2 ?></p>
               <!-- Parrafo 3, acerca de -->
-              <p><? echo $parrafo3 ?></p>
+              <p><?php echo $parrafo3 ?></p>
               <br>
 
               <center>
@@ -115,7 +115,7 @@
 
         <nav class="breadcrumb" style="background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
     border: 1px solid #e5e5e5;">
-			<a class="breadcrumb-item" href="index.php?id=<? echo $id ?>" id='link-custom-breadcrumb'>/ Inicio</a>
+			<a class="breadcrumb-item" href="index.php?id=<?php echo $id ?>" id='link-custom-breadcrumb'>/ Inicio</a>
 			<span class="breadcrumb-item active" span style="color: rgb(40, 167, 69);">Servicios</span>
 		</nav>
       </main>

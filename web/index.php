@@ -242,7 +242,7 @@
 
         <nav class="breadcrumb" style="background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
     border: 1px solid #e5e5e5;">
-			<span class="breadcrumb-item" style="color: black; background-color: transparent;"></span>
+			<span class="breadcrumb-item" href="index.php?id=<?php echo $id ?>" id='link-custom-breadcrumb' style="color: black; background-color: transparent;"></span>
 			<span class="breadcrumb-item active" span style="color: rgb(40, 167, 69);">Inicio</span>
 		</nav>
       </main>

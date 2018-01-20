@@ -109,20 +109,20 @@
                         <i class="fa fa-phone" style="font-size:20px"></i>
                         <span class="field">Teléfono:</span>
                         <br>
-                        (+34) <? echo $telefono ?>
+                        (+34) <?php echo $telefono ?>
                     </li><br>
                     <li>
                         <i class="fa fa-envelope" style="font-size:20px"></i>
                         <span class="field">E-mail:</span>
                         <br>
-                        <a href="mailto:<? echo $correo ?>" title="Email"><? echo $correo ?></a>
+                        <a href="mailto:<?php echo $correo ?>" title="Email"><?php echo $correo ?></a>
                     </li><br>
                     <li>
                         <i class="fa fa-home" style="font-size:24px"></i>
                         <span class="field">Dirección:</span>
                         <br>
                         <!-- Texto dirección -->
-                        <? echo $direccion ?><br>
+                        <?php echo $direccion ?><br>
                         38000, Sta. Cruz de Tenerife<br>
                         Canarias, España.
                     </li>
@@ -139,7 +139,7 @@
 
         <nav class="breadcrumb" style="background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
     border: 1px solid #e5e5e5;">
-			<a class="breadcrumb-item" href="index.php?id=<? echo $id ?>" id='link-custom-breadcrumb'>/ Inicio</a>
+			<a class="breadcrumb-item" href="index.php?id=<?php echo $id ?>" id='link-custom-breadcrumb'>/ Inicio</a>
 			<span class="breadcrumb-item active" span style="color: rgb(40, 167, 69);">Contacto</span>
 		</nav>
       </main>

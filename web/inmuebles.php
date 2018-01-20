@@ -204,8 +204,8 @@
 
         <nav class="breadcrumb" style="background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
     border: 1px solid #e5e5e5;">
-			<a class="breadcrumb-item" href="#" id='link-custom-breadcrumb'>/ Inicio</a>
-			<span class="breadcrumb-item active" span style="color: rgb(40, 167, 69);">Inmueble</span>
+			<a class="breadcrumb-item"  href="index.php?id=<?php echo $id ?>" id='link-custom-breadcrumb'>/ Inicio</a>
+			<span class="breadcrumb-item active" span style="color: rgb(40, 167, 69);">Inmuebles</span>
 		</nav>
       </main>
 

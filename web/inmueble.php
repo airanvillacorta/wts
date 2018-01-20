@@ -105,12 +105,12 @@
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } 
-            $id="";
+            $in="";
               
-            $id=$_GET["in"];
+            $in=$_GET["in"];
 
               
-            $sql = "SELECT IMN_id,IMN_Titulo, IMN_referencia,IMN_precio,IMN_tipo,IMN_desc,IMN_habitaciones,IMN_habitaciones,IMN_banos,IMN_m2,IMN_venta,IMN_anoconstruccion,IMN_certificadoener, IMG_path, IMN_organizacion FROM inmueble, imagen WHERE IMN_id='$id' AND IMN_id=IMG_id_INM";
+            $sql = "SELECT IMN_id,IMN_Titulo, IMN_referencia,IMN_precio,IMN_tipo,IMN_desc,IMN_habitaciones,IMN_habitaciones,IMN_banos,IMN_m2,IMN_venta,IMN_anoconstruccion,IMN_certificadoener, IMG_path, IMN_organizacion FROM inmueble, imagen WHERE IMN_id='$in' AND IMN_id=IMG_id_INM";
 
             $result = $conn->query($sql);
 
@@ -153,7 +153,7 @@
                   </div>';
                     
                     
-            $sql = "SELECT IMG_path FROM  imagen WHERE IMG_id_INM='$id'";
+            $sql = "SELECT IMG_path FROM  imagen WHERE IMG_id_INM='$in'";
             echo '<h3 class="my-4">Imágenes:</h3><hr><br>
              <div class="row">';
             
@@ -191,7 +191,7 @@
 
         <nav class="breadcrumb" style="background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
     border: 1px solid #e5e5e5;">
-			<a class="breadcrumb-item" href="#" id='link-custom-breadcrumb'>/ Inicio</a>
+			<a class="breadcrumb-item"  href="index.php?id=<?php echo $id ?>" id='link-custom-breadcrumb'>/ Inicio</a>
 			<span class="breadcrumb-item active" span style="color: rgb(40, 167, 69);">Inmueble</span>
 		</nav>
       </main>
