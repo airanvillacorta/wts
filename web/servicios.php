@@ -120,14 +120,14 @@
 		</nav>
       </main>
 
-      <!-- Site footer -->
+       <!-- Site footer -->
       <footer class="footer">
       	<div class="row">
           <div class="col-lg-3">
-          	<p>&copy; 2017 - <? echo $nombre ?>.</p>
+          	<p>&copy; 2017 - <?php echo $nombre ?>.</p>
           </div>
           <div class="col-lg-9">
-			  <p class="text-right">Sigue a <? echo $nombre ?> en las redes sociales:
+			  <p class="text-right">Sigue a <?php echo $nombre ?> en las redes sociales:
 			  	<a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook" style="font-size:24px"></i></a>
 			  	<a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter" style="font-size:24px"></i></a>
 			  	<a href="http://www.youtube.com" target="_blank"><i class="fa fa-youtube" style="font-size:24px"></i></a>

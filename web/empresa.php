@@ -2,8 +2,7 @@
   $id = $_GET["id"];
   $conexion=mysqli_connect("localhost","root","","gecko") or
       die("Problemas con la conexión");
-  $registros=mysqli_query($conexion,"select ORG_nombre, ORG_tituloacerca, ORG_acerca, ORG_acerca2, ORG_acerca3 , IMG_path
-                          from organizacion,imagen where ORG_id = '$id' and IMG_id_ORG= ORG_id ") or
+  $registros=mysqli_query($conexion,"select ORG_nombre, ORG_tituloacerca, ORG_acerca, ORG_acerca2, ORG_acerca3 , IMG_path from organizacion,imagen where ORG_id = '$id' and IMG_id_ORG= ORG_id ") or
     die("Problemas en el select:".mysqli_error($conexion));
 
   if ($reg=mysqli_fetch_array($registros)){
@@ -124,14 +123,14 @@
 		</nav>
       </main>
 
-      <!-- Site footer -->
+     <!-- Site footer -->
       <footer class="footer">
       	<div class="row">
           <div class="col-lg-3">
-          	<p>&copy; 2017 - <? echo $nombre ?>.</p>
+          	<p>&copy; 2017 - <?php echo $nombre ?>.</p>
           </div>
           <div class="col-lg-9">
-			  <p class="text-right">Sigue a <? echo $nombre ?> en las redes sociales:
+			  <p class="text-right">Sigue a <?php echo $nombre ?> en las redes sociales:
 			  	<a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook" style="font-size:24px"></i></a>
 			  	<a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter" style="font-size:24px"></i></a>
 			  	<a href="http://www.youtube.com" target="_blank"><i class="fa fa-youtube" style="font-size:24px"></i></a>
