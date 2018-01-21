@@ -2,10 +2,10 @@
 -- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 22, 2017 at 04:26 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jan 21, 2018 at 07:23 PM
+-- Server version: 5.7.19
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,63 +28,49 @@ SET time_zone = "+00:00";
 -- Table structure for table `imagen`
 --
 
-CREATE TABLE `imagen` (
-  `IMG_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `imagen`;
+CREATE TABLE IF NOT EXISTS `imagen` (
+  `IMG_id` int(11) NOT NULL AUTO_INCREMENT,
   `IMG_destacada` tinyint(1) DEFAULT '0',
   `IMG_descripcion` varchar(120) DEFAULT NULL,
   `IMG_path` varchar(500) NOT NULL,
   `IMG_id_INM` int(11) DEFAULT NULL,
-  `IMG_id_ORG` int(12) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `IMG_id_ORG` int(12) DEFAULT NULL,
+  PRIMARY KEY (`IMG_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1263 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `imagen`
 --
 
 INSERT INTO `imagen` (`IMG_id`, `IMG_destacada`, `IMG_descripcion`, `IMG_path`, `IMG_id_INM`, `IMG_id_ORG`) VALUES
-(80, 0, NULL, 'imagen/2-0dingo.png', 2, NULL),
-(81, 0, NULL, 'imagen/3-02-1.jpg', 3, NULL),
-(82, 0, NULL, 'imagen/4-01-1.jpg', 4, NULL),
-(83, 0, NULL, 'imagen/4-11-2.jpg', 4, NULL),
-(84, 0, NULL, 'imagen/4-21-3.jpg', 4, NULL),
-(85, 0, NULL, 'imagen/4-31-4.jpg', 4, NULL),
-(86, 0, NULL, 'imagen/5-01-1.jpg', 5, NULL),
-(87, 0, NULL, 'imagen/5-11-2.jpg', 5, NULL),
-(88, 0, NULL, 'imagen/5-21-3.jpg', 5, NULL),
-(89, 0, NULL, 'imagen/5-31-4.jpg', 5, NULL),
-(90, 1, NULL, 'imagen/5-01-1.jpg', 5, NULL),
-(91, 0, NULL, 'imagen/7-0dingo.png', NULL, 7),
-(92, 0, NULL, '../web/imagen/6-0lvl1Icon.png', 6, NULL),
-(93, 0, NULL, '../web/imagen/6-1lvl2Icon.png', 6, NULL),
-(94, 0, NULL, '../web/imagen/6-2lvl3Icon.png', 6, NULL),
-(95, 0, NULL, '../web/imagen/6-3lvl4Icon.png', 6, NULL),
-(96, 0, NULL, '../web/imagen/7-0lvl1Icon.png', 7, NULL),
-(97, 0, NULL, '../web/imagen/7-1lvl2Icon.png', 7, NULL),
-(98, 0, NULL, '../web/imagen/7-2lvl3Icon.png', 7, NULL),
-(99, 0, NULL, '../web/imagen/7-3lvl4Icon.png', 7, NULL),
-(100, 0, NULL, '../web/imagen/8-0lvl1Icon.png', 8, NULL),
-(101, 0, NULL, '../web/imagen/8-1lvl2Icon.png', 8, NULL),
-(102, 0, NULL, '../web/imagen/8-2lvl3Icon.png', 8, NULL),
-(103, 0, NULL, '../web/imagen/8-3lvl4Icon.png', 8, NULL),
-(104, 0, NULL, '../web/imagen/9-0lvl1Icon.png', 9, NULL),
-(105, 0, NULL, '../web/imagen/9-1lvl2Icon.png', 9, NULL),
-(106, 0, NULL, '../web/imagen/9-2lvl3Icon.png', 9, NULL),
-(107, 0, NULL, '../web/imagen/9-3lvl4Icon.png', 9, NULL),
-(108, 0, NULL, '../web/imagen/10-0lvl1Icon.png', 10, NULL),
-(109, 0, NULL, '../web/imagen/10-1lvl2Icon.png', 10, NULL),
-(110, 0, NULL, '../web/imagen/10-2lvl3Icon.png', 10, NULL),
-(111, 0, NULL, '../web/imagen/10-3lvl4Icon.png', 10, NULL),
-(112, 0, NULL, '../web/imagen/11-0lvl1Icon.png', 11, NULL),
-(113, 0, NULL, '../web/imagen/11-1lvl2Icon.png', 11, NULL),
-(114, 0, NULL, '../web/imagen/11-2lvl3Icon.png', 11, NULL),
-(115, 0, NULL, '../web/imagen/11-3lvl4Icon.png', 11, NULL),
-(116, 0, NULL, 'imagen/12-0icon v2alphaless.png', 12, NULL),
-(117, 1, NULL, 'imagen/12-0icondraw.jpg', 12, NULL),
-(118, 0, NULL, '../web/imagen/13-0IMG_2017-02-15 12:48:51.jpg', 13, NULL),
-(119, 0, NULL, '../web/imagen/13-1IMG_2017-02-15 12:49:03.jpg', 13, NULL),
-(120, 0, NULL, '../web/imagen/13-2IMG_2017-02-15 12:49:13.jpg', 13, NULL),
-(121, 0, NULL, '../web/imagen/13-3IMG_2017-02-15 12:49:19.jpg', 13, NULL),
-(122, 1, '', 'imagen/13-0dingo.png', 13, NULL);
+(27, 0, NULL, '../web/imagen/acerca.png', NULL, 2),
+(26, 0, NULL, '../web/imagen/acerca.png', NULL, 1),
+(1, 0, NULL, '../web/imagen/15-0vivienda1.png', 1, NULL),
+(2, 0, NULL, '../web/imagen/15-1vivienda2.png', 1, NULL),
+(3, 0, NULL, '../web/imagen/15-2vivienda3.png', 1, NULL),
+(4, 1, 'Acogedor al mejor precio', '../web/imagen/dest15-3Destacada.png', 1, NULL),
+(5, 0, NULL, '../web/imagen/16-0viviendas1.png', 2, NULL),
+(6, 0, NULL, '../web/imagen/16-1viviendas2.png', 2, NULL),
+(7, 1, 'La comodidad de la piscina en tu casa', '../web/imagen/dest16-2Destacada.png', 2, NULL),
+(8, 0, NULL, '../web/imagen/17-0viviendas1.png', 3, NULL),
+(9, 0, NULL, '../web/imagen/17-1viviendas2.png', 3, NULL),
+(10, 0, NULL, '../web/imagen/17-2viviendas3.png', 3, NULL),
+(11, 0, NULL, '../web/imagen/17-3viviendas4.png', 3, NULL),
+(12, 0, NULL, '../web/imagen/18-0viviendas1.png', 4, NULL),
+(13, 0, NULL, '../web/imagen/18-1viviendas2.png', 4, NULL),
+(14, 1, 'En el centro de la ciudad', '../web/imagen/dest18-2destacada.png', 4, NULL),
+(15, 0, NULL, '../web/imagen/19-0viviendas1.png', 5, NULL),
+(16, 0, NULL, '../web/imagen/19-1viviendas2.png', 5, NULL),
+(17, 0, NULL, '../web/imagen/19-2viviendas3.png', 5, NULL),
+(18, 1, 'Moderna y fabulosa', '../web/imagen/dest19-3desta.png', 5, NULL),
+(19, 0, NULL, '../web/imagen/20-0viviendas1.png', 6, NULL),
+(20, 0, NULL, '../web/imagen/20-1viviendas2.png', 6, NULL),
+(21, 0, NULL, '../web/imagen/20-2viviendas3.png', 6, NULL),
+(22, 0, NULL, '../web/imagen/21-0viviendas1.png', 7, NULL),
+(23, 0, NULL, '../web/imagen/21-1viviendas2.png', 7, NULL),
+(24, 0, NULL, '../web/imagen/21-2viviendas3.png', 7, NULL),
+(25, 1, 'Vista espectacular', '../web/imagen/dest21-3desta.png', 7, NULL);
 
 -- --------------------------------------------------------
 
@@ -92,12 +78,13 @@ INSERT INTO `imagen` (`IMG_id`, `IMG_destacada`, `IMG_descripcion`, `IMG_path`, 
 -- Table structure for table `inmueble`
 --
 
-CREATE TABLE `inmueble` (
-  `IMN_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `inmueble`;
+CREATE TABLE IF NOT EXISTS `inmueble` (
+  `IMN_id` int(11) NOT NULL AUTO_INCREMENT,
   `IMN_Titulo` varchar(50) NOT NULL,
   `IMN_tipo` varchar(23) NOT NULL,
   `IMN_referencia` varchar(50) NOT NULL,
-  `IMN_desc` varchar(500) NOT NULL,
+  `IMN_desc` varchar(700) NOT NULL,
   `IMN_precio` double NOT NULL,
   `IMN_habitaciones` int(1) DEFAULT NULL,
   `IMN_banos` int(1) DEFAULT NULL,
@@ -106,25 +93,22 @@ CREATE TABLE `inmueble` (
   `IMN_certificadoener` varchar(5) DEFAULT NULL,
   `IMN_venta` varchar(20) NOT NULL,
   `IMN_dest` tinyint(1) NOT NULL,
-  `IMN_organizacion` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `IMN_organizacion` int(11) NOT NULL,
+  PRIMARY KEY (`IMN_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inmueble`
 --
 
 INSERT INTO `inmueble` (`IMN_id`, `IMN_Titulo`, `IMN_tipo`, `IMN_referencia`, `IMN_desc`, `IMN_precio`, `IMN_habitaciones`, `IMN_banos`, `IMN_m2`, `IMN_anoconstruccion`, `IMN_certificadoener`, `IMN_venta`, `IMN_dest`, `IMN_organizacion`) VALUES
-(3, 'La Laguna 2', 'Apartamento', 'prueba referencia 2', 'el segundo de todos', 12341, 4, 4, 100, 2010, 'A', 'Venta', 0, 1),
-(4, 'La Cuesta MODIFICADO', 'Adosado', 'MODIFICADO prueba referencia 3 ', 'MODIFICADO la tercera', 200001, 3, 2, 150, 2010, 'Venta', '', 1, 1),
-(5, 'La Cuesta', 'Adosado', 'prueba referencia 3 ', 'la tercera', 200000, 2, 2, 150, 2010, 'A', 'Venta', 1, 1),
-(6, 'Dingo', 'Adosado', 'Dingo', 'el mejor juego del mundo a llegado para quedarse ', 100000, 2, 2, 44, 2000, 'Venta', '', 1, 1),
-(7, 'Dingo', 'Adosado', 'Dingo', 'el mejor juego del mundo a llegado para quedarse ', 100000, 2, 2, 44, 2000, 'Venta', '', 1, 1),
-(8, 'Dingo', 'Adosado', 'Dingo', 'el mejor juego del mundo a llegado para quedarse ', 100000, 2, 2, 44, 2000, 'Venta', '', 1, 1),
-(9, 'Dingo', 'Adosado', 'Dingo', 'el mejor juego del mundo a llegado para quedarse ', 100000, 2, 2, 44, 2000, 'Venta', '', 1, 1),
-(10, 'Dingo', 'Adosado', 'Dingo', 'el mejor juego del mundo a llegado para quedarse ', 100000, 2, 2, 44, 2000, 'Venta', '', 1, 1),
-(11, 'Dingo', 'Adosado', 'Dingo', 'el mejor juego del mundo a llegado para quedarse ', 100000, 2, 2, 44, 2000, 'Venta', '', 1, 1),
-(12, '12', 'Adosado', '12', '212212', 21212, 2, 2, 2, 2010, 'A', 'Venta', 1, 1),
-(13, 'Dingo', 'Chalet', 'Dingo', 'dingooo', 21231431, 2, 2, 44, 2010, 'Venta', '', 1, 1);
+(1, 'Piso en Calle Fray Pedro Balaguer', 'Piso', 'Balaguer17', 'Piso en el barrio de NUEVO ALTABIX, JUNTO A CORREOS. En urbanizaciÃ³n cerrada con columpios y bancos. Cocina muy amplia y con madera de pino en toda la casa. Tarima flotante en el comedor y aire acondicionado art cool de LG (diseÃ±o). Pasillo decorado de forma rÃºstica. Aseos totalmente reformados y con mamparas en ambos baÃ±os (baÃ±era y plato de ducha). Ojos de buey en toda la casa y luces led en la cocina. Altillo en una de las habitaciones y armario empotrado en habitacion de matrimonio. INCLUYE VARIOS MUEBLES Y ELECTRODOMESTICOS. 80 m2 de piso y 7 m2 de terraza con toldo. ', 105000, 3, 2, 80, 2010, 'Venta', '', 0, 1),
+(2, 'Chalet en Calle Italia', 'Adosado', 'ItaliaChalet', 'Se vende chalet de 250 mÂ² construidos en parcela de 1200 mÂ² con 5 habitaciones, 3 baÃ±os, cocina independiente, piscina de agua salada completamente reformada y garaje.', 449000, 6, 3, 250, 2010, 'Venta', '', 1, 1),
+(3, 'Piso en Calle Monjas', 'Piso', 'Monjas2', 'Se vende bonito apartamento en Balmaseda completamente amueblado. Zona privilegiada. Consta de 1 habitacion, baÃ±o, salÃ³n con cocina americana y balcÃ³n,parcela de garage y trastero. Agua caliente y calefacciÃ³n individual y ascensor. Paseo de la Magdalena. Reciente construcciÃ³n.', 129000, 1, 1, 80, 2010, 'Venta', '', 0, 1),
+(4, 'Piso en Calle San Vicente', 'Piso', 'VicenteMar', 'Vivienda situada en el centro de la ciudad. Cerca de todos los servicios, colegios, centros de salud, zona de compras y ocio. Piso en 1Âª. planta exterior de 65 m2 lineal distribuido en 2 habitaciones grandes, salÃ³n de 22m, baÃ±o y cocinas reformados recientemente, terraza y trastero. CalefacciÃ³n individual de gas. Buena accesibilidad en el portal, tiene servicio de porterÃ­a.', 143000, 2, 1, 68, 1980, 'Venta', '', 1, 1),
+(5, 'DÃºplex en Ruta de la Plata ', 'Duplex', 'Plataruta', 'Ãtico-dÃºplex de excelentes calidades, dos terrazas de 22m2 y 80m2, Residencial Solaria, urbanizaciÃ³n MACONDO.', 310000, 4, 2, 140, 2000, 'Venta', '', 1, 1),
+(6, 'Piso en Zumaburu', 'Piso', 'Zumaburu', 'Piso muy acogedor en Zumaburu, con reforma reciente antes tres habitaciones, ahora dos, con cocina americana con amplio salon y baÃ±o completo. El piso es todo exterior y se deja amueblado. Sin obras pendientes, con ascensor.', 210000, 2, 1, 67, 1990, 'Venta', '', 0, 1),
+(7, 'Chalet en UrbanizaciÃ³n Monterrey', 'Chalet', 'MonteChalt', 'OFERTA! Chalet, dos viviendas independientes en la misma propriedad, en venta un chalet impresionante. Muy atractivo en excelente condiciones y con magnificas vistas dentro la prestigiosa urbanizaciÃ³n de Monterrey, a pocos minutos de Gandia y playa.', 580000, 7, 8, 2399, 2000, 'Venta', '', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -132,77 +116,31 @@ INSERT INTO `inmueble` (`IMN_id`, `IMN_Titulo`, `IMN_tipo`, `IMN_referencia`, `I
 -- Table structure for table `organizacion`
 --
 
-CREATE TABLE `organizacion` (
-  `ORG_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `organizacion`;
+CREATE TABLE IF NOT EXISTS `organizacion` (
+  `ORG_id` int(11) NOT NULL AUTO_INCREMENT,
   `ORG_nombre` varchar(50) NOT NULL,
   `ORG_correo` varchar(50) NOT NULL,
   `ORG_telefono` varchar(15) NOT NULL,
   `ORG_direccion` varchar(180) NOT NULL,
   `ORG_tipo` varchar(20) NOT NULL DEFAULT 'Inmobiliaria',
-  `ORG_acerca` varchar(500) NOT NULL,
-  `ORG_acerca2` varchar(300) DEFAULT NULL,
-  `ORG_acerca3` varchar(300) DEFAULT NULL,
+  `ORG_acerca` varchar(700) NOT NULL,
+  `ORG_acerca2` varchar(700) DEFAULT NULL,
+  `ORG_acerca3` varchar(700) DEFAULT NULL,
   `ORG_tituloacerca` varchar(100) NOT NULL,
   `ORG_servicio1` varchar(700) NOT NULL,
   `ORG_servicio2` varchar(700) DEFAULT NULL,
-  `ORG_servicio3` varchar(700) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ORG_servicio3` varchar(700) DEFAULT NULL,
+  PRIMARY KEY (`ORG_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `organizacion`
 --
 
 INSERT INTO `organizacion` (`ORG_id`, `ORG_nombre`, `ORG_correo`, `ORG_telefono`, `ORG_direccion`, `ORG_tipo`, `ORG_acerca`, `ORG_acerca2`, `ORG_acerca3`, `ORG_tituloacerca`, `ORG_servicio1`, `ORG_servicio2`, `ORG_servicio3`) VALUES
-(2, 'Nombre', 'correoORG', '123455', 'C/ Constitución 155, ', 'Inmobiliaria', 'acerca de la empresa 1 3ro B', NULL, NULL, 'titulo acerca', 'Servicio 1 ', 'Servicio 2 ', 'Servicio 3'),
-(3, 'MODNombre2222', 'MODcorreoORG', '123455', 'MODC/ Constituciï¿½n 155, ', 'Inmobiliaria', 'MODacerca de la empresa 1 3ro B', 'MOD', 'MOD', 'MODtitulo acerca', 'MODServicio 1 ', 'MODServicio 2 ', 'MODServicio 3'),
-(4, 'pagina', 'pagina', '21324242', 'calle leleleel', 'Inmobiliaria', 'acercas 12 1231231 ', 'Ascerca 22222 ', 'acerca 3333 ', 'toosada', 'Servicio 1 ', 'Servicio 2222', 'Servicio3333'),
-(5, 'pagina2222', 'pagina2222', '21324242', 'calle leleleel2222', 'Inmobiliaria', 'acercas 12 1231231 22', '2Ascerca 22222 ', '3acerca 3333 ', 'toosada2222', '4Servicio 1 ', '5Servicio 2222', '6Servicio3333'),
-(6, 'pagina2222', 'pagina2222', '21324242', 'calle leleleel2222', 'Inmobiliaria', 'acercas 12 1231231 22', '2Ascerca 22222 ', '3acerca 3333 ', 'toosada2222', '4Servicio 1 ', '5Servicio 2222', '6Servicio3333'),
-(7, 'pagina2222', 'pagina2222', '21324242', 'calle leleleel2222', 'Inmobiliaria', 'acercas 12 1231231 22', '2Ascerca 22222 ', '3acerca 3333 ', 'toosada2222', '4Servicio 1 ', '5Servicio 2222', '6Servicio3333');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `imagen`
---
-ALTER TABLE `imagen`
-  ADD PRIMARY KEY (`IMG_id`);
-
---
--- Indexes for table `inmueble`
---
-ALTER TABLE `inmueble`
-  ADD PRIMARY KEY (`IMN_id`);
-
---
--- Indexes for table `organizacion`
---
-ALTER TABLE `organizacion`
-  ADD PRIMARY KEY (`ORG_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `imagen`
---
-ALTER TABLE `imagen`
-  MODIFY `IMG_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
-
---
--- AUTO_INCREMENT for table `inmueble`
---
-ALTER TABLE `inmueble`
-  MODIFY `IMN_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `organizacion`
---
-ALTER TABLE `organizacion`
-  MODIFY `ORG_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+(1, 'S.G.I. GECKO', 'info@gecko.com', '922012012', 'Calle Venecia n13, 1Izq', 'Inmobiliaria', 'Bienvenido/a a nuestra pagina web. En ella podra encontrar una gran seleccion de inmuebles en venta y en alquiler dentro de la Comunidad Autonoma de Canarias. Nuestra cartera de productos esta en constante expansion y actualizacion. Si no encuentra el inmueble que busca entre nuestras ofertas no dude en comunicarnos sus preferencias y nosotros le encontraremos el producto que mejor se adapte a ellas.', 'Trabajamos con Promotoras, Bancos y Particulares para poder ofrecerle una variada oferta de villas, chalets, adosados, pisos, apartamentos, entre otros, de maxima calidad. Nuestro principal objetivo es lograr la satisfaccion de nuestros clientes.', 'GECKO nace de una larga trayectoria profesional en el sector inmobiliario. Le ofrecemos una atencion profesional integral en la que se tienen en cuenta todos los aspectos que influyen en una operacion inmobiliaria, Asesoramiento juridico, Busqueda de Inmuebles, Organizacion de Visitas, Servicio', 'S.G.I. GECKO. Expertos en el sector inmobiliario.', 'Prestamos servicios especializados en la compraventa de inmuebles en las mejores zonas de Canarias. Desarrollamos innovadoras estrategias de marketing tanto en el mercado nacional como internacional, construyendo una base solida de confianza con el cliente, cimentando nuestra relacion en la consecucian de los objetivos: la compra o venta de su propiedad.', 'Con nuestro sistema de trabajo ofrecemos un servicio integral, ayudando y asesorandole en todo el proceso que conlleva la compra venta de su propiedad. Nuestra trayectoria en el sector inmobiliario nos avala. Confie en nuestra profesionalidad y experiencia, y nuestro compromiso sera maximo con usted.', 'Venga a conocernos y le asesoramos personalmente sin ningun compromiso.'),
+(2, 'Dingo Inmobiliaria', 'Dingo@dingo.com', '673032031', 'C/ Constitución 155, ', 'Inmobiliaria', 'Dingo se encarga de las mejores casas', 'Las casas mas baratas, y de buena calidad', 'Siempre que puedas pagarlas', 'La casa ideal al precio imposible', 'Nos encargamos de vender todo hasta los muebles', 'Mascotas ? no importa tambien se pueden vender', 'Tenemos las mejores comisiones de todas las inmobiliarias de la isla');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

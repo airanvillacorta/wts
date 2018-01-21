@@ -51,7 +51,7 @@
       <header class="masthead">
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="index.php?id=<? echo $id ?>"><b><? echo $nombre ?></b></a>
+			<a class="navbar-brand" href="index.php?id=<?php echo $id ?>"><b><?php echo $nombre ?></b></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 			</button>
@@ -59,20 +59,20 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="index.php?id=<? echo $id ?>"><span style="color: rgb(40, 167, 69);">Inicio</span> <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="index.php?id=<?php echo $id ?>"><span style="color: rgb(40, 167, 69);">Inicio</span> <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="empresa.php?id=<? echo $id ?>">La empresa</a>
+						<a class="nav-link" href="empresa.php?id=<?php echo $id ?>">La empresa</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="servicios.php?id=<? echo $id ?>">Servicios</a>
+						<a class="nav-link" href="servicios.php?id=<?php echo $id ?>">Servicios</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="contacto.php?id=<? echo $id ?>">Contacto</a>
+						<a class="nav-link" href="contacto.php?id=<?php echo $id ?>">Contacto</a>
 					</li>
 				</ul>
 				<div class="form-inline my-2 my-lg-0">
-					<a href="inmuebles.php?id=<? echo $id ?>">
+					<a href="inmuebles.php?id=<?php echo $id ?>">
 						<button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">Inmuebles</button>
 					</a>
 				</div>
@@ -82,23 +82,7 @@
       </header>
       <br>
       <main role="main">
-
-        <!-- Carousel -->
-
-			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-				</ol>
-				<div class="carousel-inner">
-                    
-                    
-                          
-        <?php
+<?php
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -113,64 +97,80 @@
          
 
  
-            $sql = "SELECT IMG_path,IMG_id_INM,IMG_destacada,IMG_descripcion FROM  imagen WHERE IMG_destacada=1 GROUP BY IMG_id_INM  ORDER BY IMG_id_INM DESC LIMIT 6";
+            $sql = "SELECT IMG_path,IMG_id_INM,IMG_destacada,IMG_descripcion FROM  imagen,inmueble WHERE IMG_destacada=1 AND IMN_id=IMG_id_INM AND IMN_organizacion ='$id' GROUP BY IMG_id_INM  ORDER BY IMG_id_INM DESC LIMIT 6";
             $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-                // output data of each row
-                
-                
-                if($row = $result->fetch_assoc()){
-                         echo'  
-                    <div class="carousel-item active">
-						<img class="d-block w-100"  src="'. $row["IMG_path"].'" alt="">
-						<div class="carousel-caption d-none d-md-block">
-								<a class="btn btn btn-success"href="inmueble.php?id='. $row["IMG_id_INM"].'">Ver Inmueble</a>
-							<div style="background: rgba(0, 0, 0, 0.6); border-radius: 5px; margin-top: 1%;">
-								<p>'. $row["IMG_descripcion"] .'</p>
-							</div>
-						</div>
-					</div>';
-                
-                while($row = $result->fetch_assoc()) {
-                    
-               
-                         echo'  
-                    <div class="carousel-item">
-						<img class="d-block w-100"  src="'. $row["IMG_path"].'" alt="">
-						<div class="carousel-caption d-none d-md-block">
-								<a class="btn btn btn-success"href="inmueble.php?id='. $row["IMG_id_INM"].'">Ver Inmueble</a>
-							<div style="background: rgba(0, 0, 0, 0.6); border-radius: 5px; margin-top: 1%;">
-								<p>'. $row["IMG_descripcion"] .'</p>
-							</div>
-						</div>
-					</div>';
-                    
-                    
-                    
-                }
-                }
-            } else {
-                echo "0 results";
-            }
+           
                     
                 
             
             ?> 
+        <!-- Carousel -->
+
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+				</ol>
+				<div class="carousel-inner">
                     
                     
-                    
-					
-				</div>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        
+                    	    <?php 
+                     if ($result->num_rows > 0) {
+                        for ($i = 0; $i < $result->num_rows; $i++) {
+                            $row = $result->fetch_assoc();
+                            if($i==0){
+
+                            echo '	<div class="carousel-item active">
+                            <img class="d-block w-100" src="'. $row["IMG_path"].'" alt="Foto 1.">
+                            <div class="carousel-caption d-none d-md-block">
+                                    <a class="btn btn btn-success"  href="inmueble.php?id='.$id.'&in='. $row["IMG_id_INM"].'">Ver Inmueble</a>
+                                <div style="background: rgba(0, 0, 0, 0.6); border-radius: 5px; margin-top: 1%;">
+                                    <p>'. $row["IMG_descripcion"] .'</p>
+                                </div>
+                            </div>
+                        </div>';
+                            }
+                            else{
+                            echo '<div class="carousel-item">
+                            <img class="d-block w-100" src="'. $row["IMG_path"].'" alt="Foto 2.">
+                            <div class="carousel-caption d-none d-md-block">
+                                    <a class="btn btn btn-success" href="inmueble.php?id='.$id.'&in='. $row["IMG_id_INM"].'">Ver Inmueble</a>
+                                <div style="background: rgba(0, 0, 0, 0.6); border-radius: 5px; margin-top: 1%;">
+                                    <p>'. $row["IMG_descripcion"] .'</p>
+                                </div>
+                            </div>
+                        </div>';
+                            }
+
+                        }
+                         
+                     echo '    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="sr-only">Previous</span>
 				</a>
 				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="sr-only">Next</span>
-				</a>
-			</div>
+				</a>';
+                     }
+                    else {
+                        
+                        
+
+                        echo '<h3>Esta Organizacion no tiene Inmuebles destacados</h3>';
+                    }
+                    
+                    
+                    
+                    
+                    
+                    ?>
 
 		<br>
 
@@ -255,10 +255,10 @@
       <footer class="footer">
       	<div class="row">
           <div class="col-lg-3">
-          	<p>&copy; 2017 - <? echo $nombre ?>.</p>
+          	<p>&copy; 2017 - <?php echo $nombre ?>.</p>
           </div>
           <div class="col-lg-9">
-			  <p class="text-right">Sigue a <? echo $nombre ?> en las redes sociales:
+			  <p class="text-right">Sigue a <?php echo $nombre ?> en las redes sociales:
 			  	<a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook" style="font-size:24px"></i></a>
 			  	<a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter" style="font-size:24px"></i></a>
 			  	<a href="http://www.youtube.com" target="_blank"><i class="fa fa-youtube" style="font-size:24px"></i></a>

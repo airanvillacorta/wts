@@ -108,8 +108,10 @@ if(isset($_POST['submit'])){
     
     
      if(count($_FILES['destaupload']['name']) > 0){
-        
-            $descripcionDesc = isset($_POST['$descripcionDesc']) ? $_POST['$descripcionDesc'] : '';
+         
+         
+            $descripcionDesc="";
+            $descripcionDesc = isset($_POST['descripcionDesc']) ? $_POST['descripcionDesc'] : '';
         
           //Get the temp file path
             $tmpFilePath = $_FILES['destaupload']['tmp_name'][0];
@@ -123,7 +125,7 @@ if(isset($_POST['submit'])){
 
                 //save the url and the file
 				
-					$filePath = "imagen/" .$last_id.'-'.'0'.$shortname;
+                $filePath = "../web/imagen/dest" .$last_id.'-'.$i.$shortname;
 
                 $check = getimagesize($_FILES['destaupload']['tmp_name'][0]);
                 //Upload the file into the temp dir
@@ -162,9 +164,14 @@ function validateForm() {
    
     
     var x = document.getElementById("destupload");
+    
     if (x.style.display === "block") {
-        alert("hace falta una imagen destacada");
-        return false;
+           
+        var y = document.forms["myForm"]["destaupload[]"].files.length;
+        if (y ==0) {
+            alert("hace falta una imagen destacada");
+            return false;
+        }
     }
 }
 function enabledest()
@@ -394,6 +401,8 @@ function enabledest()
 
                                                    
             </div>
+            
+            
           <button type="submit" name="submit"  class="btn btn-primary">Enviar</button>
         </form>
 

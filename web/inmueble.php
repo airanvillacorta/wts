@@ -110,7 +110,7 @@
             $in=$_GET["in"];
 
               
-            $sql = "SELECT IMN_id,IMN_Titulo, IMN_referencia,IMN_precio,IMN_tipo,IMN_desc,IMN_habitaciones,IMN_habitaciones,IMN_banos,IMN_m2,IMN_venta,IMN_anoconstruccion,IMN_certificadoener, IMG_path, IMN_organizacion FROM inmueble, imagen WHERE IMN_id='$in' AND IMN_id=IMG_id_INM";
+            $sql = "SELECT IMN_id,IMN_Titulo, IMN_referencia,IMN_precio,IMN_tipo,IMN_desc,IMN_habitaciones,IMN_habitaciones,IMN_banos,IMN_m2,IMN_venta,IMN_anoconstruccion,IMN_certificadoener, IMG_path, IMN_organizacion FROM inmueble, imagen WHERE IMN_id='$in' AND IMN_id=IMG_id_INM AND IMG_destacada=0";
 
             $result = $conn->query($sql);
 
@@ -153,7 +153,7 @@
                   </div>';
                     
                     
-            $sql = "SELECT IMG_path FROM  imagen WHERE IMG_id_INM='$in'";
+            $sql = "SELECT IMG_path FROM  imagen WHERE IMG_id_INM='$in'  AND IMG_destacada=0";
             echo '<h3 class="my-4">Imágenes:</h3><hr><br>
              <div class="row">';
             

@@ -96,7 +96,7 @@
 	            <h1>La empresa</h1>
 	            <hr>
               <!-- titulo acerca de -->
-	            <p><strong class="text-error"><? echo $titulo ?></strong><br><br></p>
+	            <p><strong class="text-error"><?php echo $titulo ?></strong><br><br></p>
 
               <center>
                 <img src="<?php echo $imagen ?>" alt="Encuentra tu casa" style="border-radius: 5%" width="300px" height="200px">

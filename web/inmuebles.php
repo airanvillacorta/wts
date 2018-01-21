@@ -1,4 +1,5 @@
-<?php
+   
+   <?php
   $id = $_GET["id"];
   $conexion=mysqli_connect("localhost","root","","gecko") or
       die("Problemas con la conexión");
@@ -43,32 +44,28 @@
     <link href="css/justified-nav.css" rel="stylesheet">
     <link href="css/shop-homepage.css" rel="stylesheet">
   </head>
-    
-<body>
 
-
-
-    <body>
+  <body>
 
     <div class="container">
 
       <header class="masthead">
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="index.php?id=<?php echo $id ?>"><b><?php echo $nombre; ?></b></a>
+			<a class="navbar-brand" href="index.php?id=<?php echo $id ?>"><b><?php echo $nombre ?></b></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 			</button>
-        
+
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
+					<li class="nav-item ">
 						<a class="nav-link" href="index.php?id=<?php echo $id ?>">Inicio <span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item ">
+					<li class="nav-item">
 						<a class="nav-link" href="empresa.php?id=<?php echo $id ?>">La empresa</a>
 					</li>
-					<li class="nav-item ">
+					<li class="nav-item">
 						<a class="nav-link" href="servicios.php?id=<?php echo $id ?>">Servicios</a>
 					</li>
 					<li class="nav-item">
@@ -76,65 +73,138 @@
 					</li>
 				</ul>
 				<div class="form-inline my-2 my-lg-0">
-                    
-					<?php
-                    echo'<a href="inmuebles.php?id='. $id.'">
-                    
-                    	<button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">Inmuebles</button>
-					</a>'; 
-                    ?>
-                   
-					
+					<a href="inmuebles.php?id=<?php echo $id ?>">
+						<button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">Inmuebles</button>
+					</a>
 				</div>
 			</div>
 		</nav>
-     </header>
-     <br>
+
+      </header>
+      <br>
       <main role="main">
-
-        <div class="row-fluid">
-	    <!--Edit Main Content Area here-->
-	        <div class="span12" id="divMain" style="text-align:justify;">
-	            <h1>Inmuebles de <?php echo $nombre; ?></h1>
-  <!-- Page Content -->
-    <div class="container">
-
-      <div class="row">
-
+           <div class="span12" id="divMain" style="text-align:justify;">
+	        
+<?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "gecko"; 
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            } 
         
-      
+         
 
-        <div class="col-lg-9">
+ 
+            $sql = "SELECT IMG_path,IMG_id_INM,IMG_destacada,IMG_descripcion FROM  imagen,inmueble WHERE IMG_destacada=1 AND IMN_id=IMG_id_INM AND IMN_organizacion ='$id' GROUP BY IMG_id_INM  ORDER BY IMG_id_INM ASC LIMIT 6";
+            $result = $conn->query($sql);
 
-          <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
+           
+                    
+                
+            
+            ?> 
+        <!-- Carousel -->
 
-          <div class="row">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					    <?php 
+                    for ($i = 0; $i < $result->num_rows; $i++) {
+                        
+                        if($i==0){
+                            
+                        echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'" class="active"></li>';
+                        }
+                        else{
+                        echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'"></li>';
+                        }
+                        
+                    }
+                    
+                    ?>
+				</ol>
+				<div class="carousel-inner">
+                    
+                    
+        
+                    	    <?php 
+                     if ($result->num_rows > 0) {
+                        for ($i = 0; $i < $result->num_rows; $i++) {
+                            $row = $result->fetch_assoc();
+                            if($i==0){
 
+                            echo '	<div class="carousel-item active">
+                            <img class="d-block w-100" src="'. $row["IMG_path"].'" alt="Foto 1.">
+                            <div class="carousel-caption d-none d-md-block">
+                                    <a class="btn btn btn-success"  href="inmueble.php?id='.$id.'&in='. $row["IMG_id_INM"].'">Ver Inmueble</a>
+                                <div style="background: rgba(0, 0, 0, 0.6); border-radius: 5px; margin-top: 1%;">
+                                    <p>'. $row["IMG_descripcion"] .'</p>
+                                </div>
+                            </div>
+                        </div>';
+                            }
+                            else{
+                            echo '<div class="carousel-item">
+                            <img class="d-block w-100" src="'. $row["IMG_path"].'" alt="Foto 2.">
+                            <div class="carousel-caption d-none d-md-block">
+                                    <a class="btn btn btn-success" href="inmueble.php?id='.$id.'&in='. $row["IMG_id_INM"].'">Ver Inmueble</a>
+                                <div style="background: rgba(0, 0, 0, 0.6); border-radius: 5px; margin-top: 1%;">
+                                    <p>'. $row["IMG_descripcion"] .'</p>
+                                </div>
+                            </div>
+                        </div>';
+                            }
+
+                        }
+                         
+                     echo '    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+        </div> ';
+                     }
+                    else {
+                        
+                        
+
+                        echo '<h3>Esta Organizacion no tiene Inmuebles destacados</h3>';
+                    }
+                    
+                    
+                    
+                    
+                    
+                    ?>
+                </div>
+		<br>
+
+		<!-- Cita o Slogan-->
+        <center>
+            <blockquote class="blockquote text-right">
+			  <p class="mb-0" style="font-size: 18px">“Propiedad exclusiva, asesoramiento personal.”</p>
+			  <footer class="blockquote-footer"><cite title="La Empresa">La empresa</cite></footer>
+			</blockquote>
+        </center>
+
+
+    <h1>Inmuebles de <?php echo $nombre; ?></h1>
+        <hr>
+
+        <br>
+          
+         
+        <!-- Example row of columns -->
+        <div class="row">
+            
             <?php
             $id = $_GET["id"];
               
@@ -165,7 +235,7 @@
                     echo'<div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
                         
-                    <a href="href="inmueble.php?id='. $row["IMN_id"].'"><img class="card-img-top" src="'. $row["IMG_path"].'" alt=""></a>
+                    <a href="inmueble.php?id='.$id.'&in='. $row["IMN_id"].'"><img class="card-img-top" src="'. $row["IMG_path"].'" alt=""></a>
                     <div class="card-body">
                       <h4 class="card-title">
                         '. $row["IMN_Titulo"] .'
@@ -186,22 +256,12 @@
 
             $conn->close();
             ?> 
-            
-
-          </div>
-          <!-- /.row -->
-
+     
         </div>
-        <!-- /.col-lg-9 -->
 
-      </div>
-      <!-- /.row -->
+        <br><br>
 
-    </div>
-    <!-- /.container --> 
-     </div><br>
-	    </div>
-
+        
         <nav class="breadcrumb" style="background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
     border: 1px solid #e5e5e5;">
 			<a class="breadcrumb-item"  href="index.php?id=<?php echo $id ?>" id='link-custom-breadcrumb'>/ Inicio</a>
@@ -238,4 +298,5 @@
     <script src="dist/js/bootstrap.min.js"></script>
   </body>
 </html>
+
 
