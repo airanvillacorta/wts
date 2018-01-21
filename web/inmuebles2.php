@@ -226,7 +226,7 @@ function filterTable($query)
 
     <h1>Inmuebles de <?php echo $nombre; ?></h1>
         <hr>
-<form action="inmuebles.php?id=<?php echo $id ?>" method="post">
+<form action="inmuebles2.php?id=<?php echo $id ?>" method="post">
      <div class="form-group">
             <center><input type="text"   class="form-control" name="valueToSearch" placeholder="Buscar por referencia, titulo o tipo"></center><br><br> <center><input type="submit" name="search" class="btn btn-success" value="Buscar"></center><br><br>
     </div>
