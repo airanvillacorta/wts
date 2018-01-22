@@ -44,15 +44,17 @@
 
         <div class="card-body">
           <div style="margin-left:5%; margin-right:5%; text-align: justify;">
-            <form method="post" action="install.php">
+          <form method="post" action="install.php">
               Indique el servidor:
-              <input type="text" name="servidor">
+              <input type="text" name="servidor" placeholder="localhost">
               <br>
               Indique el usuario:
-              <input type="text" name="usuario">
+              <input type="text" name="usuario" placeholder="root">
               <br>
               Indique la contraseña:
               <input type="password" name="pass">
+              <br><br>
+                <b>Para una correcta instalación en local se deberá indicar los siguientes datos:<br>(servidor: localhost, usuario: root, contraseña: "dejar sin rellenar")</b>
               <br><br>
               <input type="submit" value="Instalar">
             </form>
