@@ -37,7 +37,7 @@ if(isset($_POST['search']))
 // function to connect and execute the query
 function filterTable($query)
 {
-    $connect = mysqli_connect("localhost", "root", "", "gecko");
+    $connect = mysqli_connect("localhost","root","","gecko");
     $filter_Result = mysqli_query($connect, $query);
     return $filter_Result;
 }

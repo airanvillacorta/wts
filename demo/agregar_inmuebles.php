@@ -381,7 +381,7 @@ function enabledest()
             </div>
           <div class="form-group">
           <label for="certificado">Venta/Alquiler:</label>
-          <select class="selectpicker" name="certificado"id="certificado"data-style="btn-warning">
+          <select class="selectpicker" name="venta" id="venta" data-style="btn-warning">
             <option value="Venta">Venta</option>
             <option value="Alquiler">Alquiler</option>
           </select>

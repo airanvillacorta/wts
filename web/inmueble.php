@@ -51,7 +51,7 @@
       <header class="masthead">
 
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="index.php?id=<?php echo $id ?>"><b><?php echo $nombre; ?></b></a>
+			<a class="navbar-brand" href="index.php?id=<?php echo $id; ?>"><b><?php echo $nombre; ?></b></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 			</button>
@@ -145,7 +145,7 @@
                         <li>'.$row["IMN_banos"] .' Baños</li>
                         <li>'.$row["IMN_m2"] .' m/2</li>
                         <li> Año Construcción: '.$row["IMN_anoconstruccion"] .' </li>
-                        <li>Certificado Energético: '.$row["IMN_certificadoener"] .' Hab</li>
+                        <li>Certificado Energético: '.$row["IMN_certificadoener"] .'</li>
                         <li>Tipo de inmueble: '.$row["IMN_tipo"] .'</li>
                       </ul>
                     </div>

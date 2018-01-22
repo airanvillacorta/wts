@@ -241,7 +241,7 @@
                       <p class="card-text">'. $row["IMN_referencia"] .' <br>'. $row["IMN_venta"] .'<br> <center>'. $row["IMN_habitaciones"] .' Hab| '. $row["IMN_banos"] .' Baños| '. $row["IMN_m2"] .'m2 </center> </p>
                     </div>
                         <div class="card-footer"> 
-                            <a href="inmueble.php?id='. $row["IMN_id"].'">
+                            <a href="inmueble.php?id='.$id.'&in='. $row["IMN_id"].'">
                             <button type="button" class="btn btn-success">Ver Inmueble</button></a>
                         </div>
                     </div>

@@ -2,7 +2,9 @@
 if(isset($_POST['submit'])){
   $id = "";
 
-  $id = isset($_POST['org']);
+  //$id = isset($_POST['org']);
+  $id = isset($_POST['org']) ? $_POST['org'] : '';
+
   header('Location: listar_inmuebles2.php?id='.$id.'');
 }
 ?>
@@ -99,7 +101,7 @@ if(isset($_POST['submit'])){
             echo "<select name='org' id='org'>";
             while ($reg=mysqli_fetch_array($registros))
             {
-              echo "<option name='org' value='".$reg['ORG_id']."'>".$reg['ORG_nombre']."</option>";
+              echo "<option name='id' value='".$reg['ORG_id']."'>".$reg['ORG_nombre']."</option>";
             }
             echo "</select>";
             mysqli_close($conexion);

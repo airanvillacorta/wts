@@ -14,21 +14,15 @@
               
   $id=$_GET["id"];
   
-
-  
   $sql = "DELETE FROM organizacion WHERE ORG_id='$id'";
 
     if ($conn->query($sql) === TRUE) {
-      $last_id = $conn->insert_id;
-      echo "New INM record deleted successfully. Last deleted ID is: " . $last_id;
-      
-      
+      $last_id = $conn->insert_id;      
     }
     else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
   
   header("Location: listar_organizaciones.php");
-die();
 
 ?>
