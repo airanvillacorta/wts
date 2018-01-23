@@ -110,7 +110,7 @@
               La siguiente información muestra como debemos descargar e instalar la aplicación en nuestro servidor para que quede totalmente operativo y asi poder a posteriori configurarlo.<br><br>
 
               <ul>
-              1. Descargamos el proyecto a través del siguiente enlace: <a href="#" target="_blank">Pincha aqui</a>.<br><br>
+              1. Descargamos el proyecto a través del siguiente enlace: <a href="https://github.com/airanvillacorta/wts" target="_blank">Pincha aqui</a>.<br><br>
 
               2. Una vez descargado, debemos descomprimir la carpeta y subirla al servidor (Mostraremos un ejemplo en local usando la plataforma XAMPP, es un entorno de desarrollo que contiene Apache + MySQL + PHP, tecnologías que son necesarias para el correcto funcionamiento de la plataforma, la podrá descargar a través del siguiente enlace <a href="https://www.apachefriends.org/es/index.html" target="_blank">Pincha aqui</a>).<br><br>
 
